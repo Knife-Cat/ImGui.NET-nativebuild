@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.5)
 
 project(cimgui)
 
@@ -7,9 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(IMGUI_LIBRARIES )
 
 # find freetype
-FIND_PACKAGE(freetype REQUIRED PATHS ${FREETYPE_PATH})
+add_subdirectory(freetype)
+
 list(APPEND IMGUI_LIBRARIES freetype)
-list(APPEND IMGUI_LIBRARIES imm32)
+
+if(WIN32)
+	list(APPEND IMGUI_LIBRARIES imm32)
+endif()
 
 # CIMGUI
 add_library(cimgui SHARED
@@ -22,7 +26,11 @@ add_library(cimgui SHARED
 	cimgui/imgui/misc/freetype/imgui_freetype.cpp)
 
 add_definitions("-DCIMGUI_FREETYPE=1")
-target_compile_definitions(cimgui PUBLIC IMGUI_IMPL_API=extern\t\"C\"\t__declspec\(dllexport\))
+if(WIN32)
+	target_compile_definitions(cimgui PUBLIC IMGUI_IMPL_API=extern\t\"C\"\t__declspec\(dllexport\))
+elseif(UNIX)
+	target_compile_definitions(cimgui PUBLIC IMGUI_IMPL_API=extern\t\"C\"\t__attribute__\(\(visibility\(\"default\"\)\)\))
+endif()
 target_link_libraries(cimgui ${IMGUI_LIBRARIES})
 target_include_directories(cimgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/cimgui/imgui)
 

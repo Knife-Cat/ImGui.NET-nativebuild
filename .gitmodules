@@ -10,3 +10,6 @@
 [submodule "cimguizmo"]
 	path = cimguizmo
 	url = git@github.com:cimgui/cimguizmo.git
+[submodule "freetype"]
+	path = freetype
+	url = git@github.com:freetype/freetype.git
