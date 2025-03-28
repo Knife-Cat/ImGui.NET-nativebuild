@@ -1,6 +1,7 @@
 [submodule "cimgui"]
 	path = cimgui
 	url = git@github.com:cimgui/cimgui.git
+	branch = docking_iter
 [submodule "cimplot"]
 	path = cimplot
 	url = git@github.com:cimgui/cimplot.git
