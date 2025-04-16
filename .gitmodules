@@ -1,16 +1,16 @@
 [submodule "cimgui"]
 	path = cimgui
-	url = git@github.com:cimgui/cimgui.git
+	url = git@github.com:Knife-Cat/cimgui.git
 	branch = docking_inter
 [submodule "cimplot"]
 	path = cimplot
-	url = git@github.com:cimgui/cimplot.git
+	url = git@github.com:Knife-Cat/cimplot.git
 [submodule "cimnodes"]
 	path = cimnodes
-	url = git@github.com:cimgui/cimnodes.git
+	url = git@github.com:Knife-Cat/cimnodes.git
 [submodule "cimguizmo"]
 	path = cimguizmo
-	url = git@github.com:cimgui/cimguizmo.git
+	url = git@github.com:Knife-Cat/cimguizmo.git
 [submodule "freetype"]
 	path = freetype
 	url = git@github.com:freetype/freetype.git
